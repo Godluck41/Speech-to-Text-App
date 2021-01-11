@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            tools:showIn="@layout/activity_main">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="2dp"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/sttHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/speech_to_text"
+                        android:textColor="@color/white"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        android:layout_alignParentStart="true" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/speechToText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fab_margin"
+                        android:src="@drawable/vector_hear"
+                        android:layout_alignParentEnd="true" />
+
+
+                    <TextView
+                        android:id="@+id/sttLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/sttHeading"
+                        android:layout_marginTop="10dp"
+                        android:layout_toLeftOf="@+id/speechToText"
+                        android:text="@string/speech_to_text_output"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/speechToText" />
+
+                    <ScrollView
+                        android:id="@+id/wrap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/sttLabel"
+                        android:layout_marginTop="10dp"
+                        android:layout_toLeftOf="@+id/speechToText"
+                        android:background="@color/colorPrimary"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/speechToText">
+
+                        <TextView
+                            android:id="@+id/sttOutput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Speech to Text output will be shown here"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="20sp" />
+                    </ScrollView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="2dp"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_toLeftOf="@+id/textToSpeech"
+                        android:id="@+id/ttsHeading"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="left"
+                        android:textStyle="bold"
+                        android:layout_alignParentTop="true"
+                        android:text="Text to Speech"
+                        android:textColor="@color/white"
+                        android:textSize="21sp"
+                        android:layout_toStartOf="@+id/textToSpeech"
+                        android:layout_alignParentStart="true" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/textToSpeech"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="@dimen/fab_margin"
+                        android:src="@drawable/vector_speak" />
+
+
+                    <TextView
+                        android:id="@+id/ttsLabel"
+                        android:layout_below="@+id/ttsHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toLeftOf="@+id/textToSpeech"
+                        android:focusableInTouchMode="true"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text="Text to speech input:"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/textToSpeech" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/ttsInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ttsLabel"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="left"
+                        android:focusable="true"
+                        app:backgroundTint="@color/colorAccent"
+                        android:hint="Enter Text and click on speak button"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="20sp"
+                        />
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="2dp"
+                android:padding="10dp">
+                <LinearLayout
+                    android:padding="10dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/error_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tts_border"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:text="ERROR HANDLING "
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="21sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:id="@+id/error_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_heading"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:text="Error message:"
+                        android:textSize="13sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/erroConsole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/error_label"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:text="Error will be shown here"
+                        android:textColor="#F00"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
